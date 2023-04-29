@@ -1,6 +1,6 @@
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
-import env from '@environments';
 import { RpcException } from '@nestjs/microservices';
+import env from '@environments';
 
 @Injectable()
 export class AuthCallGuard implements CanActivate {
