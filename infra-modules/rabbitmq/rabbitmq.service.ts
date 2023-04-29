@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class RabbitMQService {
   constructor(
-    @Inject()
+    @Inject('RABBITMQ_SERVICE')
     private rabbitmq: ClientProxy,
   ) {}
 

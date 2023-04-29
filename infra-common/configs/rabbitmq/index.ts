@@ -7,8 +7,10 @@ export const RabbitMQConfig: RmqOptions = {
     urls: [env.RABBITMQ_URL],
     queue: env.RABBITMQ_QUEUE,
     noAck: false,
+    prefetchCount: 1,
     queueOptions: {
       durable: false,
     },
+    headers: { 'm-api-key': env.VHM_API_KEY },
   },
 };
