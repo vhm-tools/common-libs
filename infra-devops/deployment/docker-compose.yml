@@ -3,6 +3,7 @@ name: "vhm-tools"
 services:
   postgres:
     image: postgres:14
+    container_name: pg_tools
     ports:
       - 2340:5432
     healthcheck:
@@ -21,6 +22,7 @@ services:
 
   redis:
     image: redis
+    container_name: redis_tools
     ports:
       - 9730:6379
     healthcheck:
@@ -34,18 +36,22 @@ services:
 
   rabbitmq:
     image: rabbitmq:3-management-alpine
+    container_name: rabbitmq_tools
     ports:
       - 5672:5672
       - 15672:15672
-    volumes:
-      - .docker-data/rabbitmq/data/:/var/lib/rabbitmq/
-      - .docker-data/rabbitmq/log/:/var/log/rabbitmq
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 30s
+      retries: 3
     networks:
       - vhm_tools
 
 networks:
   vhm_tools:
-    driver: bridge
+    name: vhm-tools-nw
+    external: true
 
 volumes:
   pg_data:
