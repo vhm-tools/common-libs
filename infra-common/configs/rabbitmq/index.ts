@@ -1,10 +1,13 @@
 import { RmqOptions, Transport } from '@nestjs/microservices';
+import { isProduction } from '@utils';
 import env from '@environments';
+
+const url = isProduction ? env.RABBITMQ_URL_DOCKER : env.RABBITMQ_URL;
 
 export const RabbitMQConfig: RmqOptions = {
   transport: Transport.RMQ,
   options: {
-    urls: [env.RABBITMQ_URL],
+    urls: [url],
     queue: env.RABBITMQ_QUEUE,
     noAck: false,
     prefetchCount: 1,
