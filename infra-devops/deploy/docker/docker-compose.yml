@@ -6,19 +6,17 @@ services:
     container_name: pg_tools
     ports:
       - 2340:5432
+    environment:
+      POSTGRES_USER: vhm_tools
+      POSTGRES_PASSWORD: vhm_tools
+      POSTGRES_DB: vhm_tools
     healthcheck:
-      test: ['CMD', 'pg_isready', '-U', 'vhm-tools']
+      test: ['CMD', 'pg_isready', '-U', 'vhm_tools']
       interval: 30s
       timeout: 20s
       retries: 3
-    environment:
-      POSTGRES_USER: vhm-tools
-      POSTGRES_PASSWORD: vhm-tools
-      POSTGRES_DB: vhm-tools
     volumes:
       - pg_data:/var/lib/postgresql/data
-    networks:
-      - vhm_tools
 
   redis:
     image: redis
@@ -31,8 +29,6 @@ services:
       timeout: 30s
     volumes:
       - redis_data:/var/lib/redis/data
-    networks:
-      - vhm_tools
 
   rabbitmq:
     image: rabbitmq:3-management-alpine
@@ -40,16 +36,17 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: vhm_tools
+      RABBITMQ_DEFAULT_PASS: vhm_tools
     healthcheck:
-      test: rabbitmq-diagnostics -q ping
-      interval: 30s
-      timeout: 30s
-      retries: 3
-    networks:
-      - vhm_tools
+      test: ["CMD", "rabbitmqctl", "ping"]
+      interval: 30s # Health check interval
+      timeout: 15s # Health check timeout
+      retries: 3 # Number of retries before considering the container unhealthy
 
 networks:
-  vhm_tools:
+  default:
     name: vhm-tools-nw
     external: true
 
@@ -58,4 +55,3 @@ volumes:
     driver: local
   redis_data:
     driver: local
-
