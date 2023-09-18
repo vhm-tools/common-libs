@@ -2,7 +2,7 @@ import { EMailProvider } from '../../enums';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsEnum, IsNotEmptyObject, IsString } from 'class-validator';
 
-export class SendGridInput {
+class SendEmailInput {
   @ApiProperty()
   @IsEmail()
   to: string;
@@ -20,12 +20,12 @@ export class SendGridInput {
   html: string;
 }
 
-export class SendMailInput {
+export class SendMailPayload {
   @ApiProperty({ examples: EMailProvider, default: EMailProvider.SEND_GRID })
   @IsEnum(EMailProvider)
   provider: EMailProvider;
 
   @ApiProperty()
   @IsNotEmptyObject()
-  data: SendGridInput;
+  data: SendEmailInput;
 }
