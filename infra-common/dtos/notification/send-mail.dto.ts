@@ -13,10 +13,6 @@ class SendEmailInput {
 
   @ApiProperty()
   @IsString()
-  text: string;
-
-  @ApiProperty()
-  @IsString()
   html: string;
 }
 
