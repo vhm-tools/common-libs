@@ -34,10 +34,6 @@ if (!PORT) {
   throw new Error('PORT is not define');
 }
 
-if (!NOTIFICATION_HOST || !NOTIFICATION_PORT) {
-  throw new Error('Notification config is not define');
-}
-
 if (
   !POSTGRES_HOST ||
   !POSTGRES_PORT ||
