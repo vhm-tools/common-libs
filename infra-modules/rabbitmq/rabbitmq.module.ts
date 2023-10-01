@@ -1,7 +1,7 @@
 import { DynamicModule } from '@nestjs/common';
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { RabbitMQConfig } from '@infra-common/configs';
+import { RabbitMQConfig } from '../../infra-common/configs';
 import { AsyncOptions } from './types/async-option';
 
 @Module({})

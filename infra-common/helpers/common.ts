@@ -1,4 +1,4 @@
-import env from '@environments';
+import env from '../environments';
 import { NodeEnv } from '../enums/environment';
 import { LogLevel } from '@nestjs/common';
 

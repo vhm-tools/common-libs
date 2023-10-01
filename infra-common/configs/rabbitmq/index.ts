@@ -1,6 +1,6 @@
 import { RmqOptions, Transport } from '@nestjs/microservices';
 import { isProduction } from '../../helpers';
-import env from '@environments';
+import env from '../../environments';
 
 const url = isProduction ? env.RABBITMQ_URL_DOCKER : env.RABBITMQ_URL;
 
