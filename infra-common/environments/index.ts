@@ -11,6 +11,8 @@ const {
   VHM_API_KEY,
   NOTIFICATION_HOST,
   NOTIFICATION_PORT,
+  MONGODB_URI,
+  MONGODB_URI_DOCKER,
   POSTGRES_HOST,
   POSTGRES_PORT,
   POSTGRES_USER,
@@ -24,6 +26,7 @@ const {
   RABBITMQ_USERNAME,
   RABBITMQ_PASSWORD,
   RABBITMQ_URL_DOCKER,
+  CLIENT_URL,
 } = process.env;
 
 if (NODE_ENV && !Object.values(NodeEnv).includes(NODE_ENV as NodeEnv)) {
@@ -44,6 +47,10 @@ if (
   throw new Error('POSTGRES config is not define');
 }
 
+if (!MONGODB_URI || !MONGODB_URI_DOCKER) {
+  throw new Error('MONGODB_URI config is not define');
+}
+
 if (
   !RABBITMQ_QUEUE ||
   !RABBITMQ_URL ||
@@ -52,6 +59,10 @@ if (
   !RABBITMQ_URL_DOCKER
 ) {
   throw new Error('RabbitMQ config is not define');
+}
+
+if (!CLIENT_URL) {
+  throw new Error('CLIENT_URL config is not define');
 }
 
 if (!VHM_API_KEY) {
@@ -66,6 +77,8 @@ export default {
   NOTIFICATION_HOST,
   NOTIFICATION_PORT,
   VHM_API_KEY,
+  MONGODB_URI,
+  MONGODB_URI_DOCKER,
   POSTGRES_HOST,
   POSTGRES_PORT,
   POSTGRES_USER,
@@ -79,4 +92,5 @@ export default {
   RABBITMQ_USERNAME,
   RABBITMQ_PASSWORD,
   RABBITMQ_URL_DOCKER,
+  CLIENT_URL,
 };
