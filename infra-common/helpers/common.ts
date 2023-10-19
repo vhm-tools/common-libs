@@ -2,11 +2,11 @@ import env from '../environments';
 import { NodeEnv } from '../enums/environment';
 import { LogLevel } from '@nestjs/common';
 
-export const isProduction = env.NODE_ENV === NodeEnv.PRODUCTION;
 export const getEnv = (): NodeEnv | undefined => env.NODE_ENV as NodeEnv;
+export const isProduction = getEnv() === NodeEnv.PRODUCTION;
 
 export const getLogsLevel = (): LogLevel[] => {
-  if (env.NODE_ENV === NodeEnv.PRODUCTION) {
+  if (isProduction) {
     return ['log', 'error', 'warn'];
   }
 

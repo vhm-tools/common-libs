@@ -6,3 +6,5 @@ export * from './helpers';
 export * from './environments';
 export * from './filters';
 export * from './middlewares';
+export * from './interceptors';
+export * from './interfaces';
