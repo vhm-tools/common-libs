@@ -4,7 +4,6 @@ interface DataResponse<T> {
 }
 
 export interface IResponseType<T> {
-  statusCode: number;
   message?: string;
-  data: DataResponse<T>;
+  data: T | T[] | DataResponse<T>;
 }
