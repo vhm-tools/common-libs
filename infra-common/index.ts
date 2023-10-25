@@ -4,7 +4,7 @@ export * from './enums';
 export * from './dtos';
 export * from './helpers';
 export * from './environments';
-export * from './filters';
+export * from './exceptions';
 export * from './middlewares';
 export * from './interceptors';
 export * from './interfaces';

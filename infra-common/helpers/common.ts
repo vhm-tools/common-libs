@@ -4,6 +4,7 @@ import { LogLevel } from '@nestjs/common';
 
 export const getEnv = (): NodeEnv | undefined => env.NODE_ENV as NodeEnv;
 export const isProduction = getEnv() === NodeEnv.PRODUCTION;
+export const isDevelopment = getEnv() === NodeEnv.DEVELOPMENT;
 
 export const getLogsLevel = (): LogLevel[] => {
   if (isProduction) {

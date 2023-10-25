@@ -18,7 +18,7 @@ export class TransformInterceptor<T>
   ): Observable<IResponseType<T>> | Promise<Observable<IResponseType<T>>> {
     const response = context.switchToHttp().getResponse();
 
-    // is redirect route
+    // redirect route
     if (response.statusCode === HttpStatus.FOUND) {
       return next.handle();
     }
@@ -27,10 +27,8 @@ export class TransformInterceptor<T>
       map((data) => ({
         statusCode: response.statusCode,
         message: data?.message,
-        data: {
-          data: data?.data,
-          metadata: data?.metadata,
-        },
+        data: data?.data,
+        metadata: data?.metadata,
       })),
     );
   }
