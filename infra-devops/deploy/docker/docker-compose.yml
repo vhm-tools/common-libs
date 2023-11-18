@@ -24,7 +24,7 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=vhm_tools
       - MONGO_INITDB_ROOT_PASSWORD=vhm_tools
-      - MONGO_INITDB_DATABASE=vhm_tools
+      - MONGO_INITDB_ROOT_DATABASE=vhm_tools
     ports:
       - 27027:27017
     healthcheck:
@@ -65,7 +65,7 @@ services:
 networks:
   default:
     name: vhm-tools-nw
-    external: true
+    driver: bridge
 
 volumes:
   mongo_data:

@@ -1,5 +1,6 @@
-export interface IResponseType<T> {
+export interface IResponseType<T = object> {
   message?: string;
-  data: T | T[];
+  code?: string;
+  data?: T | T[];
   metadata?: any;
 }

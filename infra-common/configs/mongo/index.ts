@@ -15,6 +15,7 @@ export class MongooseConfigService implements MongooseOptionsFactory {
     return {
       uri,
       maxPoolSize: 2,
+      dbName: process.env.MONGODB_DB || 'test',
     };
   }
 }

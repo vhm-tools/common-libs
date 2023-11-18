@@ -6,6 +6,7 @@ import {
   NestInterceptor,
 } from '@nestjs/common';
 import { map, Observable } from 'rxjs';
+import { MESSAGE_CODE } from '@infra-common/constants';
 import { IResponseType } from '../interfaces';
 
 @Injectable()
@@ -26,6 +27,7 @@ export class TransformInterceptor<T>
     return next.handle().pipe(
       map((data) => ({
         statusCode: response.statusCode,
+        code: data?.code ?? MESSAGE_CODE.SUCCESS,
         message: data?.message,
         data: data?.data,
         metadata: data?.metadata,

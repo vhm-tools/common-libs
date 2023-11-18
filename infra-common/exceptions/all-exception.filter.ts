@@ -6,6 +6,7 @@ import {
   HttpException,
   HttpStatus,
 } from '@nestjs/common';
+import { MESSAGE_CODE } from '@infra-common/constants';
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
@@ -18,14 +19,20 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
     const ctx = host.switchToHttp();
 
-    const httpStatus =
-      exception instanceof HttpException
-        ? exception.getStatus()
-        : HttpStatus.INTERNAL_SERVER_ERROR;
+    const isHttpException = exception instanceof HttpException;
+
+    if (isHttpException) {
+      return ctx.getNext();
+    }
+
+    const httpStatus = isHttpException
+      ? exception.getStatus()
+      : HttpStatus.INTERNAL_SERVER_ERROR;
 
     const responseBody = {
       statusCode: httpStatus,
       message: exception.message ?? exception,
+      code: exception.code ?? MESSAGE_CODE.INTERNAL_SERVER_ERROR,
       timestamp: new Date().toISOString(),
       path: httpAdapter.getRequestUrl(ctx.getRequest()),
     };

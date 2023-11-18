@@ -4,6 +4,7 @@ import {
   ExceptionFilter,
   HttpException,
 } from '@nestjs/common';
+import { MESSAGE_CODE } from '@infra-common/constants';
 
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter<HttpException> {
@@ -17,6 +18,7 @@ export class HttpExceptionFilter implements ExceptionFilter<HttpException> {
     response.status(statusCode).json({
       statusCode,
       message,
+      code: MESSAGE_CODE.INTERNAL_SERVER_ERROR,
       timestamp: new Date().toISOString(),
       path: request.url,
     });
