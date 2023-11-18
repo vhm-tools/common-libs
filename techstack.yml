@@ -1,0 +1,50 @@
+repo_name: vhm-tools/common-libs
+report_id: 8a17ae7fc22dd31d6ded0db87051f016
+repo_type: Public
+timestamp: '2023-11-18T04:48:44+00:00'
+requested_by: vhm205
+provider: github
+branch: dev
+detected_tools_count: 4
+tools:
+- name: TypeScript
+  description: A superset of JavaScript that compiles to clean JavaScript output
+  website_url: http://www.typescriptlang.org
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1612/bynNY5dJ.jpg
+  detection_source: Repo Metadata
+- name: Redis
+  description: Open source (BSD licensed), in-memory data structure store
+  website_url: http://redis.io/
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: In-Memory Databases
+  image_url: https://img.stackshare.io/service/1031/default_cbce472cd134adc6688572f999e9122b9657d4ba.png
+  detection_source: infra-devops/deploy/docker/docker-compose.yml
+  last_updated_by: Vũ Huỳnh Minh
+  last_updated_on: 2023-09-18 09:28:26.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source: Repo Metadata
+- name: Mongo
+  description: Heroku provides services and tools to build, run, and scale web applications.
+    Follow @herokustatus for platform updates. A @salesforce company.
+  website_url: http://wedesignapps.herokuapp.com
+  open_source: false
+  hosted_saas: false
+  image_url: https://img.stackshare.io/service/3519/3wgIDj3j_normal.png
+  detection_source: infra-devops/deploy/docker/docker-compose.yml
+  last_updated_by: Vũ Huỳnh Minh
+  last_updated_on: 2023-10-19 16:59:56.000000000 Z
