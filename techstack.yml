@@ -1,11 +1,11 @@
 repo_name: vhm-tools/common-libs
-report_id: 8a17ae7fc22dd31d6ded0db87051f016
+report_id: 58de811541cd511fb17a3c8fb672efbc
 repo_type: Public
-timestamp: '2023-11-18T04:48:44+00:00'
+timestamp: '2023-12-14T13:14:03+00:00'
 requested_by: vhm205
 provider: github
 branch: dev
-detected_tools_count: 4
+detected_tools_count: 9
 tools:
 - name: TypeScript
   description: A superset of JavaScript that compiles to clean JavaScript output
@@ -17,6 +17,51 @@ tools:
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1612/bynNY5dJ.jpg
   detection_source: Repo Metadata
+- name: Heroku Postgres
+  description: Heroku's Database-as-a-Service. Based on the most powerful open-source
+    database, PostgreSQL
+  website_url: https://www.heroku.com/postgres
+  open_source: false
+  hosted_saas: true
+  category: Data Stores
+  sub_category: PostgreSQL as a Service
+  image_url: https://img.stackshare.io/service/2516/original.png
+  detection_source: infra-devops/deploy/docker/docker-compose.yml
+  last_updated_by: Vũ Huỳnh Minh
+  last_updated_on: 2023-10-19 16:59:56.000000000 Z
+- name: MongoDB
+  description: The database for giant ideas
+  website_url: http://www.mongodb.com/
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/1030/leaf-360x360.png
+  detection_source: infra-devops/deploy/docker/docker-compose.yml
+  last_updated_by: Vũ Huỳnh Minh
+  last_updated_on: 2023-10-19 16:59:56.000000000 Z
+- name: PostgreSQL
+  description: A powerful, open source object-relational database system
+  website_url: http://www.postgresql.org/
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/1028/ASOhU5xJ.png
+  detection_source: infra-devops/deploy/docker/docker-compose.yml
+  last_updated_by: Vũ Huỳnh Minh
+  last_updated_on: 2023-10-19 16:59:56.000000000 Z
+- name: RabbitMQ
+  description: Open source multiprotocol messaging broker
+  website_url: http://www.rabbitmq.com/
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Message Queue
+  image_url: https://img.stackshare.io/service/1061/default_df93e9a30d27519161b39d8c1d5c223c1642d187.jpg
+  detection_source: infra-devops/deploy/docker/docker-compose.yml
+  last_updated_by: Vũ Huỳnh Minh
+  last_updated_on: 2023-09-18 09:28:26.000000000 Z
 - name: Redis
   description: Open source (BSD licensed), in-memory data structure store
   website_url: http://redis.io/
@@ -38,6 +83,18 @@ tools:
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
   detection_source: Repo Metadata
+- name: Alpine Linux
+  description: Security-oriented, lightweight Linux distribution based on musl libc
+    and busybox
+  website_url: https://www.alpinelinux.org/
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Operating Systems
+  image_url: https://img.stackshare.io/service/6429/alpine_linux.png
+  detection_source: infra-devops/deploy/docker/docker-compose.yml
+  last_updated_by: vhm205
+  last_updated_on: 2023-05-09 08:46:55.000000000 Z
 - name: Mongo
   description: Heroku provides services and tools to build, run, and scale web applications.
     Follow @herokustatus for platform updates. A @salesforce company.
