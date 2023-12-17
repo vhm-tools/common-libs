@@ -16,6 +16,10 @@ export class MongooseConfigService implements MongooseOptionsFactory {
       uri,
       maxPoolSize: 2,
       dbName: process.env.MONGODB_DB || 'test',
+      maxConnecting: 2,
+      connectTimeoutMS: 5000,
+      retryAttempts: 3,
+      retryDelay: 1000,
     };
   }
 }
