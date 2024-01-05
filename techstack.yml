@@ -1,7 +1,8 @@
 repo_name: vhm-tools/common-libs
-report_id: 58de811541cd511fb17a3c8fb672efbc
+report_id: 8a17ae7fc22dd31d6ded0db87051f016
+version: 0.1
 repo_type: Public
-timestamp: '2023-12-14T13:14:03+00:00'
+timestamp: '2024-01-05T08:37:23+00:00'
 requested_by: vhm205
 provider: github
 branch: dev
@@ -16,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1612/bynNY5dJ.jpg
+  detection_source_url: https://github.com/vhm-tools/common-libs
   detection_source: Repo Metadata
 - name: Heroku Postgres
   description: Heroku's Database-as-a-Service. Based on the most powerful open-source
@@ -26,6 +28,7 @@ tools:
   category: Data Stores
   sub_category: PostgreSQL as a Service
   image_url: https://img.stackshare.io/service/2516/original.png
+  detection_source_url: https://github.com/vhm-tools/common-libs/blob/dev/infra-devops/deploy/docker/docker-compose.yml
   detection_source: infra-devops/deploy/docker/docker-compose.yml
   last_updated_by: Vũ Huỳnh Minh
   last_updated_on: 2023-10-19 16:59:56.000000000 Z
@@ -37,6 +40,7 @@ tools:
   category: Data Stores
   sub_category: Databases
   image_url: https://img.stackshare.io/service/1030/leaf-360x360.png
+  detection_source_url: https://github.com/vhm-tools/common-libs/blob/dev/infra-devops/deploy/docker/docker-compose.yml
   detection_source: infra-devops/deploy/docker/docker-compose.yml
   last_updated_by: Vũ Huỳnh Minh
   last_updated_on: 2023-10-19 16:59:56.000000000 Z
@@ -48,6 +52,7 @@ tools:
   category: Data Stores
   sub_category: Databases
   image_url: https://img.stackshare.io/service/1028/ASOhU5xJ.png
+  detection_source_url: https://github.com/vhm-tools/common-libs/blob/dev/infra-devops/deploy/docker/docker-compose.yml
   detection_source: infra-devops/deploy/docker/docker-compose.yml
   last_updated_by: Vũ Huỳnh Minh
   last_updated_on: 2023-10-19 16:59:56.000000000 Z
@@ -59,6 +64,7 @@ tools:
   category: Data Stores
   sub_category: Message Queue
   image_url: https://img.stackshare.io/service/1061/default_df93e9a30d27519161b39d8c1d5c223c1642d187.jpg
+  detection_source_url: https://github.com/vhm-tools/common-libs/blob/dev/infra-devops/deploy/docker/docker-compose.yml
   detection_source: infra-devops/deploy/docker/docker-compose.yml
   last_updated_by: Vũ Huỳnh Minh
   last_updated_on: 2023-09-18 09:28:26.000000000 Z
@@ -71,6 +77,7 @@ tools:
   category: Data Stores
   sub_category: In-Memory Databases
   image_url: https://img.stackshare.io/service/1031/default_cbce472cd134adc6688572f999e9122b9657d4ba.png
+  detection_source_url: https://github.com/vhm-tools/common-libs/blob/dev/infra-devops/deploy/docker/docker-compose.yml
   detection_source: infra-devops/deploy/docker/docker-compose.yml
   last_updated_by: Vũ Huỳnh Minh
   last_updated_on: 2023-09-18 09:28:26.000000000 Z
@@ -82,6 +89,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/vhm-tools/common-libs
   detection_source: Repo Metadata
 - name: Alpine Linux
   description: Security-oriented, lightweight Linux distribution based on musl libc
@@ -92,6 +100,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Operating Systems
   image_url: https://img.stackshare.io/service/6429/alpine_linux.png
+  detection_source_url: https://github.com/vhm-tools/common-libs/blob/dev/infra-devops/deploy/docker/docker-compose.yml
   detection_source: infra-devops/deploy/docker/docker-compose.yml
   last_updated_by: vhm205
   last_updated_on: 2023-05-09 08:46:55.000000000 Z
@@ -102,6 +111,7 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/3519/3wgIDj3j_normal.png
+  detection_source_url: https://github.com/vhm-tools/common-libs/blob/dev/infra-devops/deploy/docker/docker-compose.yml
   detection_source: infra-devops/deploy/docker/docker-compose.yml
   last_updated_by: Vũ Huỳnh Minh
   last_updated_on: 2023-10-19 16:59:56.000000000 Z
