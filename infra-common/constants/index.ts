@@ -6,4 +6,14 @@ export const MESSAGE_CODE = {
   UNAUTHORIZED: 'unauthorized',
   FORBIDDEN: 'forbidden',
   CONFLICT: 'conflict',
+  UNPROCESSABLE_ENTITY: 'unprocessable_entity',
+
+  ACTIONS: {
+    DELETE_SUCCESS: 'delete_success',
+    UPDATE_SUCCESS: 'update_success',
+    CREATE_SUCCESS: 'create_success',
+
+    DELETE_FAILED: 'delete_failed',
+    UPDATE_FAILED: 'update_failed',
+  },
 };

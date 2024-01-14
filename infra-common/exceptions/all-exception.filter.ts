@@ -1,21 +1,26 @@
-import { AbstractHttpAdapter } from '@nestjs/core';
 import {
   ExceptionFilter,
   Catch,
   ArgumentsHost,
   HttpException,
   HttpStatus,
+  Inject,
 } from '@nestjs/common';
+import { HttpAdapterHost } from '@nestjs/core';
 import { MESSAGE_CODE } from '@infra-common/constants';
+import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
+import { Logger } from 'winston';
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
-  constructor(private readonly httpAdapterHost: AbstractHttpAdapter) {}
+  constructor(
+    @Inject(WINSTON_MODULE_PROVIDER)
+    private readonly logger: Logger,
+    private readonly httpAdapterHost: HttpAdapterHost,
+  ) {}
 
   catch(exception: any, host: ArgumentsHost): void {
-    // In certain situations `httpAdapter` might not be available in the
-    // constructor method, thus we should resolve it here.
-    const httpAdapter = this.httpAdapterHost;
+    const { httpAdapter } = this.httpAdapterHost;
 
     const ctx = host.switchToHttp();
 
@@ -25,13 +30,23 @@ export class AllExceptionsFilter implements ExceptionFilter {
       ? exception.getStatus()
       : HttpStatus.INTERNAL_SERVER_ERROR;
 
+    const cause = exception.cause;
+
     const responseBody = {
       statusCode: httpStatus,
       message: exception.message ?? exception,
-      code: exception.code ?? MESSAGE_CODE.INTERNAL_SERVER_ERROR,
+      code: cause?.code ?? exception.code ?? MESSAGE_CODE.INTERNAL_SERVER_ERROR,
       timestamp: new Date().toISOString(),
       path: httpAdapter.getRequestUrl(ctx.getRequest()),
     };
+
+    this.logger.error(
+      `Exception: ${JSON.stringify({
+        ...responseBody,
+        message: isHttpException ? exception.getResponse() : exception.message,
+        response: cause?.message,
+      })}`,
+    );
 
     httpAdapter.reply(ctx.getResponse(), responseBody, httpStatus);
   }
